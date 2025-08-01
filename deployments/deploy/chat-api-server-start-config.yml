@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chat-api-server-start-config
+data:
+  discovery.yml: |
+    serviceBinaries:
+      chat-api: 1
+    toolBinaries:
+      - check-component
+      - attribute-to-credential
+    maxFileDescriptors: 10000

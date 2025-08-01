@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bot-rpc-service
+spec:
+  selector:
+    app: bot-rpc-server
+  ports:
+    - name: rpc-30400
+      protocol: TCP
+      port: 30400
+      targetPort: 30400
+  type: ClusterIP

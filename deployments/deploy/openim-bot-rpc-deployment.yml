@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: chat-rpc-server
+  name: bot-rpc-server
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: chat-rpc-server
+      app: bot-rpc-server
   template:
     metadata:
       labels:
-        app: chat-rpc-server
+        app: bot-rpc-server
     spec:
       containers:
-        - name: openim-chat-rpc-container
-          image: openim/openim-chat-rpc:v3.8.3
+        - name: openim-bot-rpc-container
+          image: openim/openim-bot-rpc:v3.8.3
           env:
             - name: CONFIG_PATH
               value: "/config"
@@ -42,11 +42,11 @@ spec:
               name: start-config
               subPath: start-config.yml
           ports:
-            - containerPort: 30300
+            - containerPort: 30400
       volumes:
         - name: openim-chat-config
           configMap:
             name: openim-chat-config
         - name: start-config
           configMap:
-            name: chat-rpc-server-start-config
+            name: bot-rpc-server-start-config

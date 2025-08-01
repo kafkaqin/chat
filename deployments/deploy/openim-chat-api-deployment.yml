@@ -38,9 +38,15 @@ spec:
             - name: openim-chat-config
               mountPath: "/config"
               readOnly: true
+            - mountPath: /openim-chat/start-config.yml
+              name: start-config
+              subPath: start-config.yml
           ports:
             - containerPort: 10008
       volumes:
         - name: openim-chat-config
           configMap:
             name: openim-chat-config
+        - name: start-config
+          configMap:
+            name: chat-api-server-start-config

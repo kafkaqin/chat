@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chat-rpc-server-start-config
+data:
+  discovery.yml: |
+    serviceBinaries:
+      chat-rpc: 1
+    toolBinaries:
+      - check-component
+      - attribute-to-credential
+    maxFileDescriptors: 10000
